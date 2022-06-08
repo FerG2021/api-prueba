@@ -79,11 +79,22 @@ class ProductoController extends Controller
         // actualizar un producto
         $producto = Producto::findOrFail($id);
         $producto->nombre = $request->nombre;
-        $producto->unidadMedida = $producto->unidadMedida;
+        $producto->unidadMedida = $request->unidadMedida;
 
         $producto->save();
 
         return $producto;
+    }
+
+    // funcion para traer los datos de un producto
+    public function obtenerDatos($id){
+        $producto = Producto::findOrFail($id)->get(); 
+        
+        // $producto = json_encode($producto);
+
+        // return $producto;
+
+        return response()->json(['success' => true, 'producto' => $producto], 200);
     }
 
     /**

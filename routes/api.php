@@ -24,6 +24,8 @@ Route::get('/productos/obtenerTodos', [ProductoController::class, 'index']);
 Route::post('/productos/crear', [ProductoController::class, 'store']);
 Route::put('/productos/actualizar/{id}', [ProductoController::class, 'update']);
 Route::delete('/productos/eliminar/{id}', [ProductoController::class, 'destroy']);
+Route::get('/productos/obtenerDatos/{id}', [ProductoController::class, 'obtenerDatos']);
+
 
 
 
